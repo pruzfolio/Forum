@@ -1,0 +1,63 @@
+# Python-related
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+
+# Django-related
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.db-journal
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# VS Code settings
+.vscode/
+
+# Mac OS X
+.DS_Store
+
+# IDEs
+.idea/
+
+# Python egg and distribution files
+.eggs/
+*.egg
+*.egg-info/
+dist/
+build/
+*.tar.gz
+*.whl
+
+server/env/
+server/venv/
+server/.venv/
+
+# Ignore node modules in the client folder
+client/node_modules/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+
+# Ignore Django migrations
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Ignore environment variables
+.env
+
+# Ignore build files (optional)
+build/
+dist/
+*.log
