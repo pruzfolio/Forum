@@ -13,24 +13,24 @@ from rest_framework.parsers import MultiPartParser, FormParser
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
-# Register View
+# Register
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-# Post Views
+# Post
 class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
-    # Removed the perform_create, let PostCreateView handle creation
+   
 
 class PostCreateView(generics.CreateAPIView):
     queryset = Post.objects.all()
     authentication_classes = [TokenAuthentication]
     #permission_classes = [IsAuthenticated]
     serializer_class = PostSerializer
-    parser_classes = [MultiPartParser, FormParser]  # Add parsers for file uploads
+    parser_classes = [MultiPartParser, FormParser]  
 
     def perform_create(self, serializer):
         user = self.request.user
@@ -41,7 +41,7 @@ class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
 
-# Comment Views
+# Comment
 class CommentListView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
@@ -55,7 +55,7 @@ class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated]
 
-# Like Post
+# Like
 class LikePostView(APIView):
     permission_classes = [IsAuthenticated]
 

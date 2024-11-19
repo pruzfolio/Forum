@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate instead of useHistory
+import { useParams, useNavigate } from 'react-router-dom'; 
 import { getPostDetail, likePost, getComments } from '../../api/api';
 import CommentList from '../Comments/CommentList';
 import AddComment from '../Comments/AddComment';
@@ -12,15 +12,15 @@ const PostDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const token = localStorage.getItem('token');
-  const navigate = useNavigate(); // useNavigate hook for navigation
+  const navigate = useNavigate(); 
 
-  // Fetch Post and Comments on Component Mount
+  
   useEffect(() => {
     const fetchPostDetail = async () => {
       try {
         const response = await getPostDetail(id, token);
         setPost(response.data);
-        setLiked(response.data.liked); // Set the liked status based on the post response
+        setLiked(response.data.liked); 
       } catch (err) {
         setError('Failed to fetch post details');
         console.error(err);
@@ -44,14 +44,14 @@ const PostDetail = () => {
       setError('Please log in to view this post');
     }
 
-    setLoading(false); // Set loading to false after data fetching is done
+    setLoading(false); 
   }, [id, token]);
 
-  // Handle Like/Unlike Action
+  
   const handleLike = async () => {
     try {
       await likePost(id, token);
-      setLiked(!liked); // Toggle like status
+      setLiked(!liked); 
     } catch (err) {
       setError('Error toggling like status');
       console.error(err);
@@ -62,7 +62,7 @@ const PostDetail = () => {
 
   return (
     <div className="max-w-7xl mx-auto mt-24 px-6">
-      {error && <p className="text-red-500 text-center text-lg">{error}</p>} {/* Display errors if any */}
+      {error && <p className="text-red-500 text-center text-lg">{error}</p>} 
 
       {post && (
         <div className="bg-white p-8 rounded-2xl shadow-lg">

@@ -30,17 +30,17 @@ const CreatePost = () => {
     }
 
     try {
-      // Ensure the correct Authorization header is being sent
+    
       const response = await fetch('http://127.0.0.1:8000/posts/create/', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,  // Ensure the token is correctly set
+          'Authorization': `Bearer ${token}`,  
         },
         body: formData,
       });
 
       if (response.ok) {
-        navigate('/posts');  // Redirect to posts list after successful post creation
+        navigate('/posts');  
       } else {
         const errorData = await response.json();
         setError(errorData.detail || 'Failed to create post');
@@ -53,7 +53,7 @@ const CreatePost = () => {
   return (
     <div className="min-h-screen mt-24">
       <main className="max-w-4xl mx-auto mt-12 px-6">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-8">Create a New Post</h2>
+        <h2 className="text-3xl font-semibold text-gray-800 mb-8">Create a New Forum Post</h2>
 
         {error && <p className="text-red-500 text-center mb-6">{error}</p>} {/* Display error if any */}
 

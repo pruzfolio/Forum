@@ -32,14 +32,14 @@ class PostSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'content', 'category', 'labels', 'media', 'created_by', 'created_at', 'like_count')
 
     def create(self, validated_data):
-        user = self.context['request'].user  # Access authenticated user from request
-        post = Post.objects.create(created_by=user, **validated_data)  # Associate authenticated user with the post
+        user = self.context['request'].user  
+        post = Post.objects.create(created_by=user, **validated_data)  
         return post
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         if instance.media:
-            representation['media'] = instance.media.url  # Ensure media URL is returned in response
+            representation['media'] = instance.media.url  
         return representation
 
 class CommentSerializer(serializers.ModelSerializer):

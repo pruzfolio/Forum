@@ -73,7 +73,7 @@ export const createPost = async (data, token) => {
     return await axios.post(`${API_URL}posts/create/`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data', // Ensure formData is properly sent
+        'Content-Type': 'multipart/form-data', 
       },
     });
   } catch (error) {

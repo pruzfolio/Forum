@@ -17,7 +17,6 @@ const AddComment = ({ postId }) => {
       await addComment({ post: postId, content }, token);
       setContent('');
       setError('');
-      // You can re-fetch the comments here to update the list or use local state
     } catch (err) {
       setError('Failed to add comment');
     }

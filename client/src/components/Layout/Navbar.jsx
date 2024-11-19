@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 p-4 shadow-lg fixed w-full top-0 left-0 z-50">
+    <nav className="bg-gray-800 p-4 shadow-lg fixed w-full top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-3xl font-extrabold hover:text-blue-200 transition duration-300 transform hover:scale-110">
           C6 Forum
@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div className="md:hidden flex items-center">
           <button className="text-white text-2xl focus:outline-none">
-            <i className="fas fa-bars"></i> {/* Optional: Add a hamburger icon */}
+            <i className="fas fa-bars"></i> 
           </button>
         </div>
       </div>

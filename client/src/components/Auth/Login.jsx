@@ -7,13 +7,13 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Function to handle login
+ 
   const handleLogin = async (e) => {
     e.preventDefault();
     
     try {
-      // Make the login API request
-      const response = await fetch('http://localhost:8000/token/', {  // Ensure this is your correct API endpoint
+      
+      const response = await fetch('http://localhost:8000/token/', {  
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -21,14 +21,13 @@ const Login = () => {
         body: JSON.stringify({ username, password }),
       });
 
-      // If login is successful, store the JWT token and navigate to posts page
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('token', data.access); // Store JWT token in localStorage
-        navigate('/posts');  // Redirect to posts page
+        localStorage.setItem('token', data.access); 
+        navigate('/posts');  
       } else {
         const data = await response.json();
-        setError(data.detail || 'Invalid credentials');  // Show error if login fails
+        setError(data.detail || 'Invalid credentials');  
       }
     } catch (err) {
       setError('An error occurred during login');
